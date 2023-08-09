@@ -1,6 +1,10 @@
 import React, {useState} from 'react';
 import {registerAdminUrl} from '../../api/Api';
 import axios from 'axios';
+import {Box,TextField,Button,Typography} from '@mui/material';
+import styles from "./styles/signUp.module.css";
+import {AdminStyles} from './styles/Admin.module.css'
+import { LoginStyles } from './styles/Styling';
 
 const AdminSignUp = () => {
   const initialValue = {
@@ -41,41 +45,89 @@ const AdminSignUp = () => {
     }
 
   return (
-    <div className='signUp'>
-      <form onSubmit={handleSubmit}>
+    // <div className='signUp'>
+    //   <form onSubmit={handleSubmit}>
+    //     <div>
+    //     <label htmlFor="">
+    //       FirstName:
+    //        <input value={data.firstName} 
+    //       name="firstName"
+    //        onChange={handleChange} 
+    //        type="text" />
+    //     </label>
+    //     </div>
+    
+
+       <Box className={styles.AdminSignUp}>
+      <Typography sx={LoginStyles.WelcText}Register></Typography>
+      <form className={styles.AdminSignUpForm} onSubmit={handleSubmit}>
+        <div className={styles.SignUpDiv1}>
+
+        <TextField
+        sx={LoginStyles.InputStyles}
+          label="FirstName"
+          value={data.firstName}
+          name='FirstName'
+          onChange={handleChange}
+          type='text'
+          variant='outlined'
+          />
+        </div> 
+
+        <div>
+          <TextField
+          sx={LoginStyles.InputStyles}
+        label="lastName"
+        value={data.lastName}
+        name="lastName" 
+        onChange={handleChange}
+         type="text" 
+         />
+        
+        </div>
+
         <div>
         <label htmlFor="">
-          FirstName: <input value={data.firstName} name="firstName" onChange={handleChange} type="text" />
+            email: 
+            <input value={data.email}
+             name="email"
+              onChange={handleChange} 
+              type="email" />
         </label>
         </div>
+
         <div>
         <label htmlFor="">
-        lastName: <input value={data.lastName} name="lastName" onChange={handleChange} type="text" />
+            userName: 
+            <input value={data.userName}
+             name="userName"
+              onChange={handleChange}
+               type="text" />
         </label>
         </div>
+
         <div>
         <label htmlFor="">
-            email: <input value={data.email} name="email" onChange={handleChange} type="email" />
+            phoneNumber: 
+            <input value={data.phoneNumber} 
+            name="phoneNumber" 
+            onChange={handleChange} 
+            type="tel" />
         </label>
         </div>
+
         <div>
         <label htmlFor="">
-            userName: <input value={data.userName} name="userName" onChange={handleChange} type="text" />
-        </label>
-        </div>
-        <div>
-        <label htmlFor="">
-            phoneNumber: <input value={data.phoneNumber} name="phoneNumber" onChange={handleChange} type="tel" />
-        </label>
-        </div>
-        <div>
-        <label htmlFor="">
-        password: <input value={data.password} name="password" onChange={handleChange} type="password" />
+        password:
+         <input value={data.password}
+          name="password"
+           onChange={handleChange} 
+           type="password" />
         </label>
         </div>
         <div><button type="submit">Submit</button></div>
       </form>
-    </div>
+    </Box>
   );
 };
 

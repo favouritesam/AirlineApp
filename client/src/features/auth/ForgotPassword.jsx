@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { forgotPassUrl } from '../../api/Api';
-import axios from 'axios'
+import axios from 'axios';
+import { LoginStyles } from './styles/Styling';
+import {Box,Button,TextField,Typography} from '@mui/material';
+import Styles from './styles/signUp.module.css';
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState();
@@ -16,11 +19,26 @@ const ForgotPassword = () => {
   }
 
   return (
-    <div className='forgotPass' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '40rem' }}>
-      <label htmlFor="email">Email: 
-        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-      </label>
-      <button onClick={handleSubmit} type="submit">Send</button>
+    <div Styles={LoginStyles.LoginMainStyle}>
+      <Typography sx={LoginStyles.WelcText}>Enter your Email to Reset Password</Typography>
+      <Box component="form" sx={Styles.SignUpForm}>
+        <TextField
+        sx={LoginStyles.InputStyles}
+        label="Email"
+        type='email'
+        value={email}
+        onChange={e => setEmail(e.target.value)}
+        />
+
+        <Button 
+        variant='contained'
+        sx={LoginStyles.ButtonStyles}
+        onClick={handleSubmit}
+        type='submit'
+        
+        >
+        </Button>
+      </Box>
     </div>
   )
 }

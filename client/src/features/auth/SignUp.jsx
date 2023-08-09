@@ -1,6 +1,9 @@
 import React, {useState} from 'react';
 import {registerUrl} from '../../api/Api';
 import axios from 'axios';
+import {Box,TextField,Button,Typography} from '@mui/material';
+import styles from "./styles/signUp.module.css";
+import {LoginStyles} from './styles/Styling'
 
 const SignUp = () => {
   const initialValue = {
@@ -41,41 +44,103 @@ const SignUp = () => {
     }
 
   return (
-    <div className='signUp'>
-      <form onSubmit={handleSubmit}>
-        <div>
-        <label htmlFor="">
-          FirstName: <input value={data.firstName} name="firstName" onChange={handleChange} type="text" />
-        </label>
+    <Box className={styles.SignUp}>
+      <Typography sx={LoginStyles.WelcText}Register></Typography>
+      <form className={styles.SignUpForm} onSubmit={handleSubmit}>
+        <div className={styles.SignUpDiv1}>
+        <TextField
+        sx={LoginStyles.InputStyles}
+          label="FirstName"
+          value={data.firstName}
+          name='FirstName'
+          onChange={handleChange}
+          type='text'
+          variant='outlined'
+          />
         </div>
+
         <div>
-        <label htmlFor="">
-        lastName: <input value={data.lastName} name="lastName" onChange={handleChange} type="text" />
-        </label>
+
+        <TextField
+        sx={LoginStyles.InputStyles}
+          label="lastName"
+          value={data.lastName}
+          name='lastName'
+          onChange={handleChange}
+          type='text'
+          variant='outlined'
+          />
+
+        {/* <label htmlFor="">
+        lastName: 
+        <input value={data.lastName} 
+        name="lastName"
+         onChange={handleChange}
+          type="text" />
+        </label> */}
         </div>
+
         <div>
-        <label htmlFor="">
-            email: <input value={data.email} name="email" onChange={handleChange} type="email" />
-        </label>
+        <TextField
+        sx={LoginStyles.InputStyles}
+          label="email"
+          value={data.email}
+          name='email'
+          onChange={handleChange}
+          type='email'
+          variant='outlined'
+          />
         </div>
+
         <div>
-        <label htmlFor="">
-            userName: <input value={data.userName} name="userName" onChange={handleChange} type="text" />
-        </label>
+        {/* <label htmlFor="">
+            userName: 
+            <input value={data.userName} 
+            name="userName"
+             onChange={handleChange} 
+             type="text" />
+        </label> */}
+
+        <TextField
+        sx={LoginStyles.InputStyles}
+          label="userName"
+          value={data.userName}
+          name='userName'
+          onChange={handleChange}
+          type='text'
+          variant='outlined'
+          />
         </div>
+
         <div>
-        <label htmlFor="">
-            phoneNumber: <input value={data.phoneNumber} name="phoneNumber" onChange={handleChange} type="tel" />
-        </label>
+        <TextField
+        sx={LoginStyles.InputStyles}
+          label="phoneNumber"
+          value={data.phoneNumber}
+          name='phoneNumber'
+          onChange={handleChange}
+          type='text'
+          variant='outlined'
+          />
         </div>
+
         <div>
-        <label htmlFor="">
-        password: <input value={data.password} name="password" onChange={handleChange} type="password" />
-        </label>
+        <TextField
+        sx={LoginStyles.InputStyles}
+          label="password"
+          value={data.password}
+          name='password'
+          onChange={handleChange}
+          type='text'
+          variant='outlined'
+          />
         </div>
-        <div><button type="submit">Submit</button></div>
+
+        <div>
+          <Button variant='contained' sx={LoginStyles.ButtonStyles}
+          type="submit">Submit</Button></div>
       </form>
-    </div>
+    </Box>
   );
 };
 
